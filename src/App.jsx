@@ -25,8 +25,21 @@ function App() {
 
   return (
     <div>
-      <div>
-        <ToDoBlocks todos={todos}/>
+      <div className='top'>
+        <div className='title'><p>ToDo list</p></div>
+        <div className='cab'>
+          <div className='input'>
+            <form className='form'>
+              <input type='text' placeholder='Ex: lavar o banheiro'/>
+              <button id='botaoInput' >Adicionar tarefa</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div className='bottom'>
+        <div className='todo-contents'>
+          <ToDoBlocks todos={todos}/>
+        </div>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ const ToDoBlocks = ({todos, setTodos}) => {
             {todos.map((todo) =>(
             <div className='tarefa'>
                 <p>{todo.Nome}</p>
-                <button></button>
+                <button className='seta'>⇨</button>
             </div>
             ))}
         </div>
@@ -19,8 +19,9 @@ const ToDoBlocks = ({todos, setTodos}) => {
         <div className='gridToDos'>
             {todos.map((todo) =>(
             <div className='tarefa'>
+                <button className='seta'>⇦</button>
                 <p>{todo.Nome}</p>
-                <button></button>
+                <button className='seta'>⇨</button>
             </div>
             ))}
         </div>
@@ -30,8 +31,8 @@ const ToDoBlocks = ({todos, setTodos}) => {
         <div className='gridToDos'>
             {todos.map((todo) =>(
             <div className='tarefa'>
+                <button className='seta'>⇦</button>
                 <p>{todo.Nome}</p>
-                <button></button>
             </div>
             ))}
         </div>
