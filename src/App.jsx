@@ -2,6 +2,7 @@ import { useState } from 'react'
 import "./App.css"
 
 import ToDoBlocks from './components/ToDoBlocks'
+import ToDoCreate from './components/ToDoCreate'
 
 function App() {
 
@@ -23,23 +24,35 @@ function App() {
     },
   ])
 
+  const addToDo = (Nome) => {
+
+    const newToDos = [...todos, {
+      id: Math.floor(Math.random()*10000),
+      Nome,
+      Situação: 0
+    },
+  ];
+
+  setTodos(newToDos);
+
+  }
+
   return (
     <div>
       <div className='top'>
         <div className='title'><p>ToDo list</p></div>
-        <div className='cab'>
-          <div className='input'>
-            <form className='form'>
-              <input type='text' placeholder='Ex: lavar o banheiro'/>
-              <button id='botaoInput' >Adicionar tarefa</button>
-            </form>
-          </div>
-        </div>
+        <div className='barra'></div>
+        <div className='cab'></div>
+        <ToDoCreate addToDo={addToDo}/>
       </div>
+      <div className='barra2'></div>
       <div className='bottom'>
         <div className='todo-contents'>
-          <ToDoBlocks todos={todos}/>
+          <ToDoBlocks todos={todos} setTodos={setTodos} />
         </div>
+      </div>
+      <div className='rodape'>
+        <div className='logo'></div>
       </div>
     </div>
   )

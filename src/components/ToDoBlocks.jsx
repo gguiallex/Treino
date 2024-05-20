@@ -1,15 +1,32 @@
 import React from 'react'
 
 const ToDoBlocks = ({todos, setTodos}) => {
+
+    const ToDoBlock = todos.filter(todo => todo.Situação == 0);
+    const DoingBlock = todos.filter(todo => todo.Situação == 1);
+    const DoneBlock = todos.filter(todo => todo.Situação == 2);
+
+    const MoveTask = (todoId, direção) => {
+        const UpdatedTask = todos.map((todo) => {
+            if(todo.id == todoId && direção == 'd'){
+                todo.Situação++;
+            }else if(todo.id == todoId && direção == 'e'){
+                todo.Situação--;
+            }
+            return todo;
+         });
+         setTodos(UpdatedTask);
+    }
+
   return (
     <div className='todos'>
         <div className='todo-block'>
         <div className='title_block'>TO DO</div>
         <div className='gridToDos'>
-            {todos.map((todo) =>(
+            {ToDoBlock.map((todo) =>(
             <div className='tarefa'>
                 <p>{todo.Nome}</p>
-                <button className='seta'>⇨</button>
+                <button onClick={() => MoveTask(todo.id, 'd')} className='seta'>⇨</button>
             </div>
             ))}
         </div>
@@ -17,11 +34,11 @@ const ToDoBlocks = ({todos, setTodos}) => {
         <div className='todo-block'>
         <div className='title_block'>DOING</div>
         <div className='gridToDos'>
-            {todos.map((todo) =>(
+            {DoingBlock.map((todo) =>(
             <div className='tarefa'>
-                <button className='seta'>⇦</button>
+                <button onClick={() => MoveTask(todo.id, 'e')} className='seta'>⇦</button>
                 <p>{todo.Nome}</p>
-                <button className='seta'>⇨</button>
+                <button onClick={() => MoveTask(todo.id, 'd')} className='seta'>⇨</button>
             </div>
             ))}
         </div>
@@ -29,9 +46,9 @@ const ToDoBlocks = ({todos, setTodos}) => {
         <div className='todo-block'>
         <div className='title_block'>DONE</div>
         <div className='gridToDos'>
-            {todos.map((todo) =>(
+            {DoneBlock.map((todo) =>(
             <div className='tarefa'>
-                <button className='seta'>⇦</button>
+                <button onClick={() => MoveTask(todo.id, 'e')} className='seta'>⇦</button>
                 <p>{todo.Nome}</p>
             </div>
             ))}

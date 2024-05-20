@@ -18,6 +18,8 @@ input{
   height: 200px; /*tamanho div*/
   display: flex; /*possibilita mexer*/
   flex-direction: row; /*alinha na horizontal*/
+  justify-content: center;
+  align-items: center;
 }
 
 .title{
@@ -30,6 +32,12 @@ input{
   font-size: 50px; /*tamanho fonte*/
 }
 
+.barra{
+  height: 100%;
+  width: 10px;
+  background-color: orangered;
+}
+
 .cab{
   width: 100%;
   display: flex;
@@ -37,10 +45,20 @@ input{
   justify-content: center;/*itens na horizontal*/
 }
 
+.input{
+  position: absolute; /*ignora os outros elementos e foca apenas no que ele está*/
+}
+
 .form{
   display: flex;
   flex-direction: column;/*coloca os itens na vertical*/
   align-items: center;/*coloca os itens no centro verticalmente*/
+}
+
+.barra2{
+  width: 100%;
+  height: 10px;
+  background-color: orangered;
 }
 
 .todo-contents{
@@ -78,6 +96,13 @@ input{
   justify-content: center;
 }
 
+.gridToDos{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+}
+
 .tarefa{
   width: 100%;
   display: flex;
@@ -92,6 +117,19 @@ input{
 .seta{
   background-color: aliceblue;
   height: 25px;
+}
+
+.rodape{
+  display: flex;
+  justify-content: center;
+}
+
+.logo{
+  width: 160px;
+  height: 50px;
+  background-image: url(./imgs/Logo_lateral_semfundo.png);
+  background-size:cover;
+  margin-top: -25px;
 }
 
 #botaoInput{
